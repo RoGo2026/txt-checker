@@ -1,18 +1,18 @@
-https://raw.githubusercontent.com/AvenCores/goida-vpn-configs/main/githubmirror/2.txt
-https://raw.githubusercontent.com/AvenCores/goida-vpn-configs/main/githubmirror/25.txt
-https://raw.githubusercontent.com/AvenCores/goida-vpn-configs/main/githubmirror/3.txt
-https://raw.githubusercontent.com/AvenCores/goida-vpn-configs/main/githubmirror/11.txt
-https://raw.githubusercontent.com/AvenCores/goida-vpn-configs/main/githubmirror/15.txt
-https://raw.githubusercontent.com/AvenCores/goida-vpn-configs/main/githubmirror/17.txt
-https://raw.githubusercontent.com/AvenCores/goida-vpn-configs/main/githubmirror/23.txt
-https://raw.githubusercontent.com/AvenCores/goida-vpn-configs/main/githubmirror/14.txt
-https://raw.githubusercontent.com/AvenCores/goida-vpn-configs/main/githubmirror/9.txt
-https://raw.githubusercontent.com/AvenCores/goida-vpn-configs/main/githubmirror/19.txt
-https://raw.githubusercontent.com/AvenCores/goida-vpn-configs/main/githubmirror/24.txt
-https://raw.githubusercontent.com/AvenCores/goida-vpn-configs/main/githubmirror/6.txt
-https://raw.githubusercontent.com/AvenCores/goida-vpn-configs/main/githubmirror/20.txt
-https://raw.githubusercontent.com/AvenCores/goida-vpn-configs/main/githubmirror/21.txt
-https://raw.githubusercontent.com/AvenCores/goida-vpn-configs/main/githubmirror/26.txt
-https://raw.githubusercontent.com/AvenCores/goida-vpn-configs/main/githubmirror/12.txt
-https://raw.githubusercontent.com/AvenCores/goida-vpn-configs/main/githubmirror/22.txt
-https://raw.githubusercontent.com/AvenCores/goida-vpn-configs/main/githubmirror/1.txt
+https://raw.githubusercontent.com/AvenCores/goida-vpn-configs/main/githubmirror/1.txt | last update: 6 minutes ago
+https://raw.githubusercontent.com/AvenCores/goida-vpn-configs/main/githubmirror/11.txt | last update: 6 minutes ago
+https://raw.githubusercontent.com/AvenCores/goida-vpn-configs/main/githubmirror/12.txt | last update: 6 minutes ago
+https://raw.githubusercontent.com/AvenCores/goida-vpn-configs/main/githubmirror/14.txt | last update: 1 hour ago
+https://raw.githubusercontent.com/AvenCores/goida-vpn-configs/main/githubmirror/15.txt | last update: 6 minutes ago
+https://raw.githubusercontent.com/AvenCores/goida-vpn-configs/main/githubmirror/17.txt | last update: 6 minutes ago
+https://raw.githubusercontent.com/AvenCores/goida-vpn-configs/main/githubmirror/19.txt | last update: 6 minutes ago
+https://raw.githubusercontent.com/AvenCores/goida-vpn-configs/main/githubmirror/2.txt | last update: 6 minutes ago
+https://raw.githubusercontent.com/AvenCores/goida-vpn-configs/main/githubmirror/20.txt | last update: 3 hours ago
+https://raw.githubusercontent.com/AvenCores/goida-vpn-configs/main/githubmirror/21.txt | last update: 1 hour ago
+https://raw.githubusercontent.com/AvenCores/goida-vpn-configs/main/githubmirror/22.txt | last update: 42 minutes ago
+https://raw.githubusercontent.com/AvenCores/goida-vpn-configs/main/githubmirror/23.txt | last update: 42 minutes ago
+https://raw.githubusercontent.com/AvenCores/goida-vpn-configs/main/githubmirror/24.txt | last update: 6 minutes ago
+https://raw.githubusercontent.com/AvenCores/goida-vpn-configs/main/githubmirror/25.txt | last update: 6 minutes ago
+https://raw.githubusercontent.com/AvenCores/goida-vpn-configs/main/githubmirror/26.txt | last update: 6 minutes ago
+https://raw.githubusercontent.com/AvenCores/goida-vpn-configs/main/githubmirror/3.txt | last update: 6 minutes ago
+https://raw.githubusercontent.com/AvenCores/goida-vpn-configs/main/githubmirror/6.txt | last update: 6 minutes ago
+https://raw.githubusercontent.com/AvenCores/goida-vpn-configs/main/githubmirror/9.txt | last update: 1 hour ago
