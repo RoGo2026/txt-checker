@@ -6,6 +6,7 @@ on:
 jobs:
   run:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
 
@@ -14,88 +15,89 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           pip install requests
-          
+
           python << 'EOF'
-import requests
-from datetime import datetime, timedelta
-from concurrent.futures import ThreadPoolExecutor
-import os
+          import requests
+          from datetime import datetime, timedelta
+          from concurrent.futures import ThreadPoolExecutor
+          import os
 
-INPUT_FILE = "repos.txt"
-OUTPUT_FILE = "result.txt"
-MAX_AGE_HOURS = 5
-KEYWORDS = ["vless://", "trojan://", "ss://", "ssr://", "vmess://"]
+          INPUT_FILE = "repos.txt"
+          OUTPUT_FILE = "result.txt"
+          MAX_AGE_HOURS = 5
 
-HEADERS = {
-    "Accept": "application/vnd.github.v3+json",
-    "Authorization": f"token {os.environ.get('GH_TOKEN')}"
-}
+          KEYWORDS = ["vless://", "trojan://", "ss://", "ssr://", "vmess://"]
 
-def is_recent(date_str):
-    file_time = datetime.strptime(date_str, "%Y-%m-%dT%H:%M:%SZ")
-    return datetime.utcnow() - file_time <= timedelta(hours=MAX_AGE_HOURS)
+          HEADERS = {
+              "Accept": "application/vnd.github.v3+json",
+              "Authorization": f"token {os.environ.get('GH_TOKEN')}"
+          }
 
-def contains_keys(text):
-    return any(k in text for k in KEYWORDS)
+          def is_recent(date_str):
+              file_time = datetime.strptime(date_str, "%Y-%m-%dT%H:%M:%SZ")
+              return datetime.utcnow() - file_time <= timedelta(hours=MAX_AGE_HOURS)
 
-def get_all_files(api_url):
-    files = []
-    r = requests.get(api_url, headers=HEADERS)
-    if r.status_code != 200:
-        return files
-    for item in r.json():
-        if item["type"] == "file":
-            files.append(item)
-        elif item["type"] == "dir":
-            files.extend(get_all_files(item["url"]))
-    return files
+          def contains_keys(text):
+              return any(k in text for k in KEYWORDS)
 
-def process_file(repo, file):
-    if not file["name"].endswith(".txt"):
-        return None
-    commits_url = f"https://api.github.com/repos/{repo}/commits?path={file['path']}&per_page=1"
-    c = requests.get(commits_url, headers=HEADERS)
-    if c.status_code != 200 or not c.json():
-        return None
-    date = c.json()[0]["commit"]["committer"]["date"]
-    if not is_recent(date):
-        return None
-    content = requests.get(file["download_url"], headers=HEADERS).text
-    if contains_keys(content):
-        return file["download_url"]
-    return None
+          def get_all_files(api_url):
+              files = []
+              r = requests.get(api_url, headers=HEADERS)
+              if r.status_code != 200:
+                  return files
+              for item in r.json():
+                  if item["type"] == "file":
+                      files.append(item)
+                  elif item["type"] == "dir":
+                      files.extend(get_all_files(item["url"]))
+              return files
 
-def process_repo(repo_url):
-    parts = repo_url.strip().split("/")
-    repo = f"{parts[-2]}/{parts[-1]}"
-    api_url = f"https://api.github.com/repos/{repo}/contents"
-    files = get_all_files(api_url)
-    results = []
-    with ThreadPoolExecutor(max_workers=10) as executor:
-        futures = [executor.submit(process_file, repo, f) for f in files]
-        for f in futures:
-            res = f.result()
-            if res:
-                results.append(res)
-    return results
+          def process_file(repo, file):
+              if not file["name"].endswith(".txt"):
+                  return None
+              commits_url = f"https://api.github.com/repos/{repo}/commits?path={file['path']}&per_page=1"
+              c = requests.get(commits_url, headers=HEADERS)
+              if c.status_code != 200 or not c.json():
+                  return None
+              date = c.json()[0]["commit"]["committer"]["date"]
+              if not is_recent(date):
+                  return None
+              content = requests.get(file["download_url"], headers=HEADERS).text
+              if contains_keys(content):
+                  return file["download_url"]
+              return None
 
-def main():
-    with open(INPUT_FILE, "r") as f:
-        repos = [r.strip() for r in f if r.strip()]
-    all_links = []
-    for repo in repos:
-        print("Checking:", repo)
-        links = process_repo(repo)
-        all_links.extend(links)
-    all_links = list(set(all_links))
-    with open(OUTPUT_FILE, "w") as f:
-        for link in all_links:
-            f.write(link + "\n")
-    print("DONE")
+          def process_repo(repo_url):
+              parts = repo_url.strip().split("/")
+              repo = f"{parts[-2]}/{parts[-1]}"
+              api_url = f"https://api.github.com/repos/{repo}/contents"
+              files = get_all_files(api_url)
+              results = []
+              with ThreadPoolExecutor(max_workers=10) as executor:
+                  futures = [executor.submit(process_file, repo, f) for f in files]
+                  for f in futures:
+                      res = f.result()
+                      if res:
+                          results.append(res)
+              return results
 
-if __name__ == "__main__":
-    main()
-EOF
+          def main():
+              with open(INPUT_FILE, "r") as f:
+                  repos = [r.strip() for r in f if r.strip()]
+              all_links = []
+              for repo in repos:
+                  print("Checking:", repo)
+                  links = process_repo(repo)
+                  all_links.extend(links)
+              all_links = list(set(all_links))
+              with open(OUTPUT_FILE, "w") as f:
+                  for link in all_links:
+                      f.write(link + "\n")
+              print("DONE")
+
+          if __name__ == "__main__":
+              main()
+          EOF
 
       - name: Save result
         run: |
