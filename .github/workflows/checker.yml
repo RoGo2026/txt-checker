@@ -18,7 +18,7 @@ jobs:
 
           python << 'EOF'
           import requests
-          from datetime import datetime, timedelta
+          from datetime import datetime, timedelta, timezone
           from concurrent.futures import ThreadPoolExecutor
           import os
 
@@ -33,9 +33,18 @@ jobs:
               "Authorization": f"token {os.environ.get('GH_TOKEN')}"
           }
 
+          def time_ago(date_str):
+              file_time = datetime.strptime(date_str, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
+              delta = datetime.now(timezone.utc) - file_time
+              hours = delta.total_seconds() // 3600
+              if hours >= 1:
+                  return f"{int(hours)} hour{'s' if hours != 1 else ''} ago"
+              minutes = delta.total_seconds() // 60
+              return f"{int(minutes)} minute{'s' if minutes != 1 else ''} ago"
+
           def is_recent(date_str):
-              file_time = datetime.strptime(date_str, "%Y-%m-%dT%H:%M:%SZ")
-              return datetime.utcnow() - file_time <= timedelta(hours=MAX_AGE_HOURS)
+              file_time = datetime.strptime(date_str, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
+              return datetime.now(timezone.utc) - file_time <= timedelta(hours=MAX_AGE_HOURS)
 
           def contains_keys(text):
               return any(k in text for k in KEYWORDS)
@@ -64,7 +73,7 @@ jobs:
                   return None
               content = requests.get(file["download_url"], headers=HEADERS).text
               if contains_keys(content):
-                  return file["download_url"]
+                  return (file["download_url"], date)
               return None
 
           def process_repo(repo_url):
@@ -84,15 +93,21 @@ jobs:
           def main():
               with open(INPUT_FILE, "r") as f:
                   repos = [r.strip() for r in f if r.strip()]
-              all_links = []
+              all_items = []
               for repo in repos:
                   print("Checking:", repo)
-                  links = process_repo(repo)
-                  all_links.extend(links)
-              all_links = list(set(all_links))
+                  items = process_repo(repo)
+                  all_items.extend(items)
+
+              unique = {}
+              for url, date in all_items:
+                  if url not in unique:
+                      unique[url] = date
+
               with open(OUTPUT_FILE, "w") as f:
-                  for link in all_links:
-                      f.write(link + "\n")
+                  for url, date in unique.items():
+                      f.write(f"{url} | last update: {time_ago(date)}\n")
+
               print("DONE")
 
           if __name__ == "__main__":
