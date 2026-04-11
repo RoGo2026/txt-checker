@@ -1,0 +1,4 @@
+https://raw.githubusercontent.com/youfoundamin/V2rayCollector/main/mixed_iran.txt | last update: 1 hour ago
+https://raw.githubusercontent.com/youfoundamin/V2rayCollector/main/ss_iran.txt | last update: 1 hour ago
+https://raw.githubusercontent.com/youfoundamin/V2rayCollector/main/trojan_iran.txt | last update: 1 hour ago
+https://raw.githubusercontent.com/youfoundamin/V2rayCollector/main/vless_iran.txt | last update: 1 hour ago
