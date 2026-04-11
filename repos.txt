@@ -1,2 +1,2 @@
 https://github.com/AvenCores/goida-vpn-configs
-https://github.com/whoahaow/rjsxrd?tab=readme-ov-file#конфигурации
+https://github.com/whoahaow/rjsxrd/tree/main/githubmirror
