@@ -1,4 +1,3 @@
-https://raw.githubusercontent.com/youfoundamin/V2rayCollector/main/mixed_iran.txt | last update: 1 hour ago
-https://raw.githubusercontent.com/youfoundamin/V2rayCollector/main/ss_iran.txt | last update: 1 hour ago
-https://raw.githubusercontent.com/youfoundamin/V2rayCollector/main/trojan_iran.txt | last update: 1 hour ago
-https://raw.githubusercontent.com/youfoundamin/V2rayCollector/main/vless_iran.txt | last update: 1 hour ago
+https://raw.githubusercontent.com/Argh94/Proxy-List/main/All_Config.txt | last update: 58 minutes ago
+https://raw.githubusercontent.com/Argh94/Proxy-List/main/ShadowSocks.txt | last update: 58 minutes ago
+https://raw.githubusercontent.com/Argh94/Proxy-List/main/Trojan.txt | last update: 58 minutes ago
