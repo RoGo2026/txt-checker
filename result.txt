@@ -1,3 +1,4 @@
-https://raw.githubusercontent.com/Argh94/Proxy-List/main/All_Config.txt | last update: 58 minutes ago
-https://raw.githubusercontent.com/Argh94/Proxy-List/main/ShadowSocks.txt | last update: 58 minutes ago
-https://raw.githubusercontent.com/Argh94/Proxy-List/main/Trojan.txt | last update: 58 minutes ago
+https://raw.githubusercontent.com/expressalaki/ExpressVPN/main/configs.txt | last update: 1 minute ago
+https://raw.githubusercontent.com/expressalaki/ExpressVPN/main/configs2.txt | last update: 1 minute ago
+https://raw.githubusercontent.com/expressalaki/ExpressVPN/main/configs3.txt | last update: 1 minute ago
+https://raw.githubusercontent.com/expressalaki/ExpressVPN/main/configs4.txt | last update: 1 minute ago
