@@ -24,7 +24,7 @@ jobs:
 
           INPUT_FILE = "repos.txt"
           OUTPUT_FILE = "result.txt"
-          MAX_AGE_HOURS = 5
+          MAX_AGE_HOURS = 1
 
           KEYWORDS = ["vless://", "trojan://", "ss://", "ssr://", "vmess://"]
 
