@@ -1,1 +1,1 @@
-https://github.com/expressalaki/ExpressVPN
+https://github.com/mohamadfg-dev/telegram-v2ray-configs-collector
