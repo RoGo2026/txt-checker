@@ -1,2 +1,1 @@
-https://github.com/mohamadfg-dev/telegram-v2ray-configs-collector
-https://github.com/Epodonios/v2ray-configs
+https://github.com/AvenCores/goida-vpn-configs
